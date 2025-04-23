@@ -53,7 +53,7 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 		velocidadeY = 1;
 
 		loop = new Timer(100, this);
-		loop.start();
+		
 
 	}
 
@@ -155,19 +155,20 @@ public class SnakeGame extends JPanel implements ActionListener, KeyListener {
 
 	@Override
 	public void keyPressed(KeyEvent e) {
-		if (e.getKeyCode() == KeyEvent.VK_UP && velocidadeY != 1) {
+		if (e.getKeyCode() == KeyEvent.VK_UP && velocidadeY != 1 && gameOver == false) {
 			velocidadeX = 0;
 			velocidadeY = -1;
-		} else if (e.getKeyCode() == KeyEvent.VK_DOWN && velocidadeY != -1) {
+		} else if (e.getKeyCode() == KeyEvent.VK_DOWN && velocidadeY != -1 && gameOver == false) {
 			velocidadeX = 0;
 			velocidadeY = 1;
-		} else if (e.getKeyCode() == KeyEvent.VK_LEFT && velocidadeX != 1) {
+		} else if (e.getKeyCode() == KeyEvent.VK_LEFT && velocidadeX != 1 && gameOver == false) {
 			velocidadeX = -1;
 			velocidadeY = 0;
-		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT && velocidadeX != -1) {
+		} else if (e.getKeyCode() == KeyEvent.VK_RIGHT && velocidadeX != -1 && gameOver == false) {
 			velocidadeX = 1;
 			velocidadeY = 0;
 		}
+		loop.start();
 	}
 	// Nao preciso
 
